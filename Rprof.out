@@ -1,0 +1,4 @@
+sample.interval=20000
+"grep" "isBlankRd" "writeWrapped" "writeBlock" "writeContent" "writeSection" "Rd2HTML" "<Anonymous>" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "try" 
+"gc" "system.time" 
+".External2" "plot.new" "plot.default" "plot" "system.time" 
