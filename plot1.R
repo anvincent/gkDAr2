@@ -1,7 +1,6 @@
 plot1 <- function(file="household_power_consumption.txt") {
-  
   #### get data, prepare it for plotting
-  ## read data
+  ## read data from filename. if none given, use default
   df <- read.table(file,sep=";",header=TRUE)
   
   ## convert date field to date data type and subset 2/1 & 2/2
@@ -21,18 +20,20 @@ plot1 <- function(file="household_power_consumption.txt") {
   df$Sub_metering_3 <- as.numeric(as.character(df$Sub_metering_3))
   
   ## define plot properties
-  par()
-  filename <- "plot1.png"
-  w <- 480
-  h <- 480
-  u <- "px"
-  xLabel <- "Global Active Power (kilowatts)"
-  titleLabel <- "Global Active Power"
-  colcolor <- "red"
+  par()                                          # reset parameters
+  filename <- "plot1.png"                        # define output filename
+  w <- 480                                       # define width
+  h <- 480                                       # define height
+  u <- "px"                                      # define units
+  xLabel <- "Global Active Power (kilowatts)"    # define x axis label
+  titleLabel <- "Global Active Power"            # define title label
+  colcolor <- "red"                              # define column color
   
-  ## build plot
+  ## build plot, first open PNG device, then build histogram
   png(file=filename,width=w,height=h,units=u)
   hist(df$Global_active_power,xlab=xLabel,main=titleLabel,col=colcolor)
+  
+  ## clean up and close all devices (incase multiple were opened)
   rm(filename,h,u,w,titleLabel,colcolor,xLabel)
   for(i in 1:(dev.cur()-2)) {
     dev.off()
