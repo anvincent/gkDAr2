@@ -29,6 +29,7 @@ plot3 <- function(file="household_power_consumption.txt") {
   lineColors <- c("black","red","blue")
   
   ## define plot properties
+  par()
   filename <- "plot3.png"
   w <- 480
   h <- 480
@@ -41,7 +42,6 @@ plot3 <- function(file="household_power_consumption.txt") {
   
   ## build plot in png file
   png(file=filename,width=w,height=h,units=u)
-  par(mfrow=c(2,2))
   #plot
   plot(xRange,yRange,type="n",xlab=xLabel,ylab=yLabel)
   #line(s)
@@ -52,5 +52,7 @@ plot3 <- function(file="household_power_consumption.txt") {
   legend(x="topright",legend=yDataLabels,col=lineColors,lty=1)
   rm(filename,h,i,u,w,lineColors,titleLabel)
   rm(xData,xLabel,xRange,yData,yDataLabels,yLabel,yRange)
-  dev.off()
+  for(i in 1:(dev.cur()-2)) {
+    dev.off()
+  }
 }

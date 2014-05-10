@@ -110,7 +110,9 @@ plot4 <- function(file="household_power_consumption.txt") {
     lines(xData,yData[[i]],type="l",col=lineColors[i])
   }
   dev.copy(png, file=filename,width=w,height=h,units=u)
-  rm(filename,h,i,lineColors,titleLabel,u,w,xData,xLabel,xRange,yData,yDataLabels,yLabel,yRange)
-  dev.off()
-  dev.off()
+  rm(filename,h,i,u,w,lineColors,titleLabel)
+  rm(xData,xLabel,xRange,yData,yDataLabels,yLabel,yRange)
+  for(i in 1:(dev.cur()-2)) {
+    dev.off()
+  }
 }

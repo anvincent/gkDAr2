@@ -21,17 +21,21 @@ plot2 <- function(file="household_power_consumption.txt") {
   df$Sub_metering_3 <- as.numeric(as.character(df$Sub_metering_3))
   
   ## define plot properties
+  par()
   filename <- "plot2.png"
   w <- 480
   h <- 480
   u <- "px"
-  xlabel <- ""
-  ylabel <- "Global Active Power (kilowatts)"
-  titlelabel <- ""
+  xLabel <- ""
+  yLabel <- "Global Active Power (kilowatts)"
+  titleLabel <- ""
   colcolor <- ""
   
   ## build plot in png file
   png(file=filename,width=w,height=h,units=u)
-  plot(df$datetime,df$Global_active_power,type="l",xlab=xlabel,ylab=ylabel)
-  dev.off()
+  plot(df$datetime,df$Global_active_power,type="l",xlab=xLabel,ylab=yLabel)
+  rm(filename,h,u,w,titleLabel,colcolor,xLabel,yLabel)
+  for(i in 1:(dev.cur()-2)) {
+    dev.off()
+  }
 }

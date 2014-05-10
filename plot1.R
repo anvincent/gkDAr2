@@ -21,17 +21,20 @@ plot1 <- function(file="household_power_consumption.txt") {
   df$Sub_metering_3 <- as.numeric(as.character(df$Sub_metering_3))
   
   ## define plot properties
+  par()
   filename <- "plot1.png"
   w <- 480
   h <- 480
   u <- "px"
-  xlabel <- "Global Active Power (kilowatts)"
-  titlelabel <- "Global Active Power"
+  xLabel <- "Global Active Power (kilowatts)"
+  titleLabel <- "Global Active Power"
   colcolor <- "red"
-  
   
   ## build plot
   png(file=filename,width=w,height=h,units=u)
-  hist(df$Global_active_power,xlab=xlabel,main=titlelabel,col=colcolor)
-  dev.off()
+  hist(df$Global_active_power,xlab=xLabel,main=titleLabel,col=colcolor)
+  rm(filename,h,u,w,titleLabel,colcolor,xLabel)
+  for(i in 1:(dev.cur()-2)) {
+    dev.off()
+  }
 }
