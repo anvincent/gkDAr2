@@ -3,3 +3,15 @@
 .Rhistory
 /household_power_consumption.txt
 /getdata-wksst8110.for
+/data/
+/Source_Classification_Code.rds
+/dataScienceQuizRepository.R
+/directoryUpload.R
+/loadDataByDirFile.R
+/summarySCC_PM25.rds
+
+
+/run_analysis.R.bak
+/run_analysis.R
+/data_import_lib.R
+/README.md
