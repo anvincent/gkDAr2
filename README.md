@@ -74,11 +74,11 @@ Program Library
   * param: sourceLink : WWW link to zip file
   * Downloads and extracts the zipfile provided by "sourceLink"
 * substrRight(x, n)
-  * param: x : string to 
+  * param: x : string to extract
   * param: n : number of characters to keep, starting from the right
   * Extracts a defined number of characters "n" counted from the right in string "x"
 * substrLeft(x, n)
-  * param: x : string to 
+  * param: x : string to extract
   * param: n : number of characters to keep, starting from the left
   * Extracts a defined number of characters "n" counted from the left in string "x"
 * setParameters(fileList,option="full")
